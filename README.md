@@ -1,5 +1,9 @@
 # Örtü
 
+<p align="center">
+  <img src="docs/assets/ortu-readme-hero.png" alt="Terracotta and sage Turkish lace draped across a warm ivory background" width="100%">
+</p>
+
 [![CI](https://github.com/fufuceng/ortu/actions/workflows/ci.yml/badge.svg)](https://github.com/fufuceng/ortu/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/fufuceng/ortu/actions/workflows/codeql.yml/badge.svg)](https://github.com/fufuceng/ortu/actions/workflows/codeql.yml)
 
