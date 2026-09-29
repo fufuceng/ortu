@@ -4,6 +4,8 @@ All notable changes to Örtü will be documented in this file. The format follow
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-09-29
+
 ### Added
 
 - Native menu bar overlay with interactive cloth motion.
@@ -11,4 +13,3 @@ All notable changes to Örtü will be documented in this file. The format follow
 - Seven built-in lace motifs and dynamic thread tinting.
 - Secure data-only `.ortupack` import, update, removal, and authoring tools.
 - Local quality gate, GitHub Actions CI, CodeQL, and dependency review.
-
