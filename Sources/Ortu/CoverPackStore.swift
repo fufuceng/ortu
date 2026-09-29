@@ -114,7 +114,7 @@ actor CoverPackStore: CoverPackStoring {
             let seedPack = Bundle.module.url(
                 forResource: "Inci",
                 withExtension: "ortupack",
-                subdirectory: "Resources/BuiltinPacks"
+                subdirectory: "BuiltinPacks"
             )
         else { return [] }
         let directory = seedPack.deletingLastPathComponent()

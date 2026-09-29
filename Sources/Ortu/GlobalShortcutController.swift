@@ -2,6 +2,9 @@ import Carbon.HIToolbox
 import Foundation
 
 final class GlobalShortcutController: @unchecked Sendable {
+    static let keyCode = UInt32(kVK_ANSI_O)
+    static let modifiers = UInt32(cmdKey | shiftKey)
+
     private var hotKey: EventHotKeyRef?
     private var eventHandler: EventHandlerRef?
     private let action: @MainActor () -> Void
@@ -32,8 +35,8 @@ final class GlobalShortcutController: @unchecked Sendable {
 
         let identifier = EventHotKeyID(signature: Self.signature, id: 1)
         RegisterEventHotKey(
-            UInt32(kVK_ANSI_O),
-            UInt32(controlKey | optionKey),
+            Self.keyCode,
+            Self.modifiers,
             identifier,
             GetApplicationEventTarget(),
             0,

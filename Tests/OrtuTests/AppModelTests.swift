@@ -1,4 +1,5 @@
 import AppKit
+import Carbon.HIToolbox
 import Foundation
 import Testing
 @testable import Ortu
@@ -77,10 +78,10 @@ struct AppModelTests {
         model.setLaunchAtLogin(true)
 
         #expect(model.launchAtLogin)
-        #expect(model.launchAtLoginMessage?.contains("onay") == true)
+        #expect(model.launchAtLoginMessage == L10n.text("launch_at_login.approval"))
         dependencies.launchAtLogin.error = TestError.expected
         model.setLaunchAtLogin(false)
-        #expect(model.launchAtLoginMessage?.contains("değiştirilemedi") == true)
+        #expect(model.launchAtLoginMessage == L10n.text("launch_at_login.failed", "expected"))
     }
 
     @Test("Pack import runs through the actor and refreshes published state")
@@ -95,7 +96,7 @@ struct AppModelTests {
         #expect(model.selectedPackID == summary.id)
         #expect(model.packs == [summary])
         #expect(model.installedPackCount == 1)
-        #expect(model.packMessage?.contains("eklendi") == true)
+        #expect(model.packMessage == L10n.text("pack.installed", summary.name))
         #expect(!model.isPackOperationInProgress)
     }
 
@@ -133,10 +134,25 @@ struct AppModelTests {
         overlay.resetInteraction()
         overlay.dismiss(animated: false) {}
 
-        #expect(settings.window?.title == "Örtü Ayarları")
+        #expect(settings.window?.title == L10n.text("settings.window.title"))
         #expect(settings.window?.frame.width ?? 0 >= 440)
         #expect(overlay.acceptsFirstResponder)
-        #expect(overlay.accessibilityLabel() == "Örtü masaüstü katmanı")
+        #expect(overlay.accessibilityLabel() == L10n.text("accessibility.overlay"))
+    }
+
+    @Test("English and Turkish localizations preserve the Örtü brand")
+    func localizations() {
+        #expect(L10n.text("app.name", localeIdentifier: "en") == "Örtü")
+        #expect(L10n.text("app.name", localeIdentifier: "tr") == "Örtü")
+        #expect(L10n.text("menu.drape", localeIdentifier: "en") == "Drape Örtü")
+        #expect(L10n.text("menu.drape", localeIdentifier: "tr") == "Örtüyü Ser")
+        #expect(L10n.text("settings.shortcut_hint", localeIdentifier: "en").contains("⇧⌘O"))
+    }
+
+    @Test("The global toggle uses Command-Shift-O")
+    func globalShortcut() {
+        #expect(GlobalShortcutController.keyCode == UInt32(kVK_ANSI_O))
+        #expect(GlobalShortcutController.modifiers == UInt32(cmdKey | shiftKey))
     }
 }
 

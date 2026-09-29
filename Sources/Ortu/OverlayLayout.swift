@@ -81,17 +81,17 @@ enum DisplayScope: String, CaseIterable, Identifiable, Sendable {
 
     var title: String {
         switch self {
-        case .all: "Tüm ekranlar"
-        case .primary: "Yalnız ana ekran"
-        case .pointer: "Sererken imlecin bulunduğu ekran"
+        case .all: L10n.text("display.all.title")
+        case .primary: L10n.text("display.primary.title")
+        case .pointer: L10n.text("display.pointer.title")
         }
     }
 
     var detail: String {
         switch self {
-        case .all: "Her ekrana ayrı örtü serilir; birinden kaldırınca hepsi birlikte kaldırılır."
-        case .primary: "Örtü yalnız menü çubuğunun bulunduğu ana ekranda görünür."
-        case .pointer: "Ser komutu verildiği anda imlecin bulunduğu ekran seçilir."
+        case .all: L10n.text("display.all.detail")
+        case .primary: L10n.text("display.primary.detail")
+        case .pointer: L10n.text("display.pointer.detail")
         }
     }
 }

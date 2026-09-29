@@ -61,7 +61,8 @@ This repository currently contains a runnable native prototype:
 - Multi-display policy: all displays, primary display, or the display under the pointer when draping
 - Validated import and rendering of external `.ortupack` bundles
 - Left-click the menu bar icon to drape/fold; right-click for settings and controls
-- System-wide `⌃⌥O` shortcut and an optional launch-at-login setting
+- System-wide `⇧⌘O` shortcut and an optional launch-at-login setting
+- English and Turkish localization while preserving the Örtü name and `.ortupack` terminology
 - No timers, polling, networking, analytics, or background rendering
 
 The cloth mesh is redrawn only while the user is dragging and during the brief release animation. At rest, there is no animation loop. macOS **Reduce Motion** removes the spring return.

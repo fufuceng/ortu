@@ -35,9 +35,9 @@ enum OrtuApplication {
                 try CoverPackArchive().extract(sourceURL, to: staging)
                 validated = try CoverPackValidator().validate(at: staging)
             }
-            print("✓ \(validated.manifest.id) \(validated.manifest.version) — geçerli .ortupack")
+            print(L10n.text("cli.pack.valid", validated.manifest.id, validated.manifest.version))
         } catch {
-            let message = "✗ Geçersiz .ortupack: \(error.localizedDescription)\n"
+            let message = L10n.text("cli.pack.invalid", error.localizedDescription)
             FileHandle.standardError.write(Data(message.utf8))
             exit(EXIT_FAILURE)
         }
@@ -95,35 +95,35 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         statusItem.button?.image = NSImage(
             systemSymbolName: "rectangle.topthird.inset",
-            accessibilityDescription: "Örtü"
+            accessibilityDescription: L10n.text("app.name")
         )
-        statusItem.button?.toolTip = "Örtü — Sol tık: Ser/Kaldır • Sağ tık: Menü"
+        statusItem.button?.toolTip = L10n.text("app.tooltip")
         statusItem.button?.target = self
         statusItem.button?.action = #selector(statusItemClicked)
         statusItem.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
 
         let menu = NSMenu()
         let toggleItem = NSMenuItem(
-            title: "Örtüyü Ser",
+            title: L10n.text("menu.drape"),
             action: #selector(toggleCover),
             keyEquivalent: ""
         )
         toggleItem.target = self
         toggleItem.keyEquivalent = "o"
-        toggleItem.keyEquivalentModifierMask = [.control, .option]
+        toggleItem.keyEquivalentModifierMask = [.command, .shift]
         menu.addItem(toggleItem)
         toggleMenuItem = toggleItem
 
         let settingsItem = NSMenuItem(
-            title: "Ayarlar…",
+            title: L10n.text("menu.settings"),
             action: #selector(openSettings),
-            keyEquivalent: ","
+            keyEquivalent: ""
         )
         settingsItem.target = self
         menu.addItem(settingsItem)
 
         let launchItem = NSMenuItem(
-            title: "Girişte Otomatik Aç",
+            title: L10n.text("menu.launch_at_login"),
             action: #selector(toggleLaunchAtLogin),
             keyEquivalent: ""
         )
@@ -134,7 +134,7 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(.separator())
 
         let quitItem = NSMenuItem(
-            title: "Örtü’den Çık",
+            title: L10n.text("menu.quit"),
             action: #selector(quit),
             keyEquivalent: "q"
         )
@@ -156,10 +156,12 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func updateToggleTitle(isDraped: Bool) {
-        toggleMenuItem?.title = isDraped ? "Örtüyü Kaldır" : "Örtüyü Ser"
+        toggleMenuItem?.title = L10n.text(isDraped ? "menu.remove" : "menu.drape")
         statusItem?.button?.image = NSImage(
             systemSymbolName: isDraped ? "rectangle.topthird.inset.filled" : "rectangle.topthird.inset",
-            accessibilityDescription: isDraped ? "Örtü serili" : "Örtü kaldırılmış"
+            accessibilityDescription: L10n.text(
+                isDraped ? "accessibility.cover.draped" : "accessibility.cover.removed"
+            )
         )
     }
 

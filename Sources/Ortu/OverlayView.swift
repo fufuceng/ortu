@@ -20,7 +20,7 @@ final class OverlayView: NSView {
         super.init(frame: frame)
         wantsLayer = true
         layer?.drawsAsynchronously = true
-        setAccessibilityLabel("Örtü masaüstü katmanı")
+        setAccessibilityLabel(L10n.text("accessibility.overlay"))
         setAccessibilityRole(.group)
     }
 

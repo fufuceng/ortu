@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "Ortu",
+    defaultLocalization: "en",
     platforms: [
         .macOS(.v13)
     ],
@@ -15,7 +16,9 @@ let package = Package(
             name: "Ortu",
             path: "Sources/Ortu",
             resources: [
-                .copy("Resources")
+                .copy("Resources/BuiltinPacks"),
+                .process("Resources/en.lproj"),
+                .process("Resources/tr.lproj"),
             ]
         ),
         .testTarget(

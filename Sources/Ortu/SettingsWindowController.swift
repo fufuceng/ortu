@@ -14,7 +14,7 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
             backing: .buffered,
             defer: false
         )
-        window.title = "Örtü Ayarları"
+        window.title = L10n.text("settings.window.title")
         window.contentView = hostingView
         window.isReleasedWhenClosed = false
         window.center()
@@ -45,43 +45,47 @@ private struct SettingsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Örtü")
+                    Text(L10n.text("app.name"))
                         .font(.system(size: 26, weight: .semibold, design: .rounded))
-                    Text("Hafif, yerel ve Mac’in için.")
+                    Text(L10n.text("app.tagline"))
                         .foregroundStyle(.secondary)
                 }
 
-                GroupBox("Görünüm") {
+                GroupBox(L10n.text("settings.section.appearance")) {
                     VStack(alignment: .leading, spacing: 14) {
-                        Picker("Örtü", selection: $model.selectedPackID) {
+                        Picker(L10n.text("settings.cover"), selection: $model.selectedPackID) {
                             ForEach(model.packs) { pack in
                                 Text(pack.name).tag(pack.id)
                             }
                         }
-                        LabeledContent("Opaklık") {
+                        LabeledContent(L10n.text("settings.opacity")) {
                             Slider(value: $model.opacity, in: 0.35 ... 1.0)
                                 .frame(width: 220)
                         }
-                        LabeledContent("Düşme") {
+                        LabeledContent(L10n.text("settings.drop")) {
                             Slider(value: $model.drop, in: 0.20 ... 0.85)
                                 .frame(width: 220)
                         }
-                        LabeledContent("Genişlik") {
+                        LabeledContent(L10n.text("settings.width")) {
                             Slider(value: $model.width, in: 0.20 ... 1.0)
                                 .frame(width: 220)
                         }
-                        LabeledContent("Arka plan") {
+                        LabeledContent(L10n.text("settings.background")) {
                             HStack(spacing: 8) {
                                 Slider(value: $model.dimAmount, in: 0 ... 1)
                                     .frame(width: 170)
-                                Text(model.dimAmount >= 0.995 ? "Tam" : "\(Int((model.dimAmount * 100).rounded()))%")
-                                    .monospacedDigit()
-                                    .frame(width: 46, alignment: .trailing)
+                                Text(
+                                    model.dimAmount >= 0.995
+                                        ? L10n.text("settings.full")
+                                        : "\(Int((model.dimAmount * 100).rounded()))%"
+                                )
+                                .monospacedDigit()
+                                .frame(width: 46, alignment: .trailing)
                             }
                         }
-                        Toggle("İplik rengini özelleştir", isOn: $model.tintEnabled)
+                        Toggle(L10n.text("settings.customize_thread"), isOn: $model.tintEnabled)
                         ColorPicker(
-                            "İplik rengi",
+                            L10n.text("settings.thread_color"),
                             selection: Binding(
                                 get: {
                                     Color(
@@ -101,17 +105,17 @@ private struct SettingsView: View {
                     .padding(8)
                 }
 
-                GroupBox("Örtü Paketleri") {
+                GroupBox(L10n.text("settings.section.packs")) {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack(spacing: 12) {
                             VStack(alignment: .leading, spacing: 3) {
-                                Text("\(model.installedPackCount) kullanıcı paketi yüklü")
-                                Text(".ortupack dosyasını buraya bırakabilirsin.")
+                                Text(L10n.text("settings.user_pack_count", model.installedPackCount))
+                                Text(L10n.text("settings.pack_drop_hint"))
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
                             Spacer()
-                            Button("Paket Ekle…") {
+                            Button(L10n.text("settings.add_pack")) {
                                 model.importCoverPack()
                             }
                             .disabled(model.isPackOperationInProgress)
@@ -132,15 +136,21 @@ private struct SettingsView: View {
                                         }
                                         Spacer()
                                         if pack.isBuiltIn {
-                                            Text("Yerleşik")
+                                            Text(L10n.text("settings.built_in"))
                                                 .font(.caption)
                                                 .foregroundStyle(.secondary)
                                         } else {
                                             Menu {
-                                                Button("Güncelle…") { model.updateCoverPack(pack) }
-                                                Button("Finder’da Göster") { model.revealCoverPack(pack) }
+                                                Button(L10n.text("settings.update")) {
+                                                    model.updateCoverPack(pack)
+                                                }
+                                                Button(L10n.text("settings.reveal")) {
+                                                    model.revealCoverPack(pack)
+                                                }
                                                 Divider()
-                                                Button("Kaldır", role: .destructive) { model.removeCoverPack(pack) }
+                                                Button(L10n.text("settings.remove"), role: .destructive) {
+                                                    model.removeCoverPack(pack)
+                                                }
                                             } label: {
                                                 Image(systemName: "ellipsis.circle")
                                             }
@@ -174,9 +184,9 @@ private struct SettingsView: View {
                     return true
                 }
 
-                GroupBox("Uygulama") {
+                GroupBox(L10n.text("settings.section.application")) {
                     VStack(alignment: .leading, spacing: 7) {
-                        Picker("Birden fazla ekran", selection: $model.displayScope) {
+                        Picker(L10n.text("settings.multiple_displays"), selection: $model.displayScope) {
                             ForEach(DisplayScope.allCases) { scope in
                                 Text(scope.title).tag(scope)
                             }
@@ -185,13 +195,13 @@ private struct SettingsView: View {
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Toggle(
-                            "Girişte otomatik aç",
+                            L10n.text("settings.launch_at_login"),
                             isOn: Binding(
                                 get: { model.launchAtLogin },
                                 set: { model.setLaunchAtLogin($0) }
                             )
                         )
-                        Text("Örtüyü her yerden serip kaldırmak için ⌃⌥O kısayolunu kullanabilirsin.")
+                        Text(L10n.text("settings.shortcut_hint"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         if let message = model.launchAtLoginMessage {
@@ -204,17 +214,17 @@ private struct SettingsView: View {
                 }
 
                 HStack {
-                    Button("Varsayılanlara Dön") {
+                    Button(L10n.text("settings.reset")) {
                         model.resetAppearance()
                     }
                     Spacer()
-                    Button(model.isDraped ? "Örtüyü Kaldır" : "Örtüyü Ser") {
+                    Button(L10n.text(model.isDraped ? "menu.remove" : "menu.drape")) {
                         model.toggleDrape()
                     }
                     .buttonStyle(.borderedProminent)
                 }
 
-                Text("Örtüler veri-only .ortupack paketleri olarak yüklenir; paketler kod çalıştıramaz.")
+                Text(L10n.text("settings.pack_safety"))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

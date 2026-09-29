@@ -1,0 +1,90 @@
+"app.name" = "Örtü";
+"app.tagline" = "Lightweight, local, and made for your Mac.";
+"app.tooltip" = "Örtü — Left-click: Drape/Fold • Right-click: Menu";
+
+"menu.drape" = "Drape Örtü";
+"menu.remove" = "Fold Örtü";
+"menu.settings" = "Settings…";
+"menu.launch_at_login" = "Open at Login";
+"menu.quit" = "Quit Örtü";
+
+"accessibility.cover.draped" = "Örtü is draped";
+"accessibility.cover.removed" = "Örtü is folded";
+"accessibility.overlay" = "Örtü desktop overlay";
+
+"settings.window.title" = "Örtü Settings";
+"settings.section.appearance" = "Appearance";
+"settings.cover" = "Cover";
+"settings.opacity" = "Opacity";
+"settings.drop" = "Drop";
+"settings.width" = "Width";
+"settings.background" = "Background";
+"settings.full" = "Full";
+"settings.customize_thread" = "Customize thread color";
+"settings.thread_color" = "Thread color";
+"settings.section.packs" = "Örtü Packs";
+"settings.user_pack_count" = "%lld user packs installed";
+"settings.pack_drop_hint" = "Drop an .ortupack file here.";
+"settings.add_pack" = "Add Pack…";
+"settings.built_in" = "Built-in";
+"settings.update" = "Update…";
+"settings.reveal" = "Show in Finder";
+"settings.remove" = "Remove";
+"settings.section.application" = "Application";
+"settings.multiple_displays" = "Multiple displays";
+"settings.launch_at_login" = "Open at login";
+"settings.shortcut_hint" = "Use ⇧⌘O to drape or fold Örtü from anywhere.";
+"settings.reset" = "Reset to Defaults";
+"settings.pack_safety" = "Covers are installed as data-only .ortupack packages; packages cannot execute code.";
+
+"display.all.title" = "All displays";
+"display.primary.title" = "Primary display only";
+"display.pointer.title" = "Display under pointer when draping";
+"display.all.detail" = "A separate cover is draped on every display; folding one folds them all.";
+"display.primary.detail" = "Örtü appears only on the primary display containing the menu bar.";
+"display.pointer.detail" = "The display under the pointer is selected when the drape command is issued.";
+
+"launch_at_login.approval" = "Waiting for approval in System Settings > Login Items.";
+"launch_at_login.enabled" = "Örtü will open automatically at login.";
+"launch_at_login.failed" = "Could not change the login setting: %@";
+
+"pack.panel.add_prompt" = "Add";
+"pack.panel.update_prompt" = "Choose New Version";
+"pack.panel.title" = "Add Örtü Pack";
+"pack.remove.confirmation" = "Remove %@?";
+"pack.remove.warning" = "The pack files will be removed from this Mac. This cannot be undone.";
+"pack.remove.cancel" = "Cancel";
+"pack.updated" = "%@ was updated to version %@.";
+"pack.installed" = "%@ was added.";
+"pack.removed" = "%@ was removed.";
+
+"pack.error.not_package" = "The selected item is not an .ortupack package.";
+"pack.error.symbolic_link" = "The package and its files cannot be symbolic links.";
+"pack.error.missing_manifest" = "The package does not contain manifest.json.";
+"pack.error.manifest_too_large" = "The package manifest exceeds the allowed size.";
+"pack.error.malformed_manifest" = "The package manifest could not be read.";
+"pack.error.unsupported_schema" = "The package schema is not supported: %lld.";
+"pack.error.invalid_identifier" = "The package identifier is invalid.";
+"pack.error.invalid_version" = "The package version is not valid semantic versioning.";
+"pack.error.invalid_metadata" = "The package field is invalid: %@.";
+"pack.error.invalid_asset_path" = "Unsafe asset path: %@.";
+"pack.error.missing_asset" = "The package asset is missing: %@.";
+"pack.error.unsupported_asset" = "Unsupported asset type: %@.";
+"pack.error.unexpected_entry" = "The package contains an unexpected item: %@.";
+"pack.error.too_many_files" = "The package contains too many files.";
+"pack.error.package_too_large" = "The expanded package exceeds the size limit.";
+"pack.error.archive_too_large" = "The package file exceeds the 25 MB limit.";
+"pack.error.malformed_archive" = "The package archive is unreadable or damaged.";
+"pack.error.unsupported_archive" = "The package archive contains an unsupported or unsafe feature.";
+"pack.error.extraction_failed" = "The package could not be expanded into the secure installation area.";
+"pack.error.invalid_image" = "The image could not be read: %@.";
+"pack.error.image_too_large" = "The image dimensions exceed the limit: %@.";
+"pack.error.checksum_mismatch" = "The file integrity check failed: %@.";
+"pack.error.already_installed" = "This Örtü pack is already installed.";
+"pack.error.version_not_newer" = "Only a newer package version can be installed.";
+"pack.error.built_in_identifier" = "An external package cannot use a built-in cover identifier.";
+"pack.error.identifier_mismatch" = "The selected file is not a new version of this Örtü pack.";
+"pack.error.pack_not_found" = "The installed Örtü pack could not be found.";
+
+"cli.pack.valid" = "✓ %@ %@ — valid .ortupack";
+"cli.pack.invalid" = "✗ Invalid .ortupack: %@\n";

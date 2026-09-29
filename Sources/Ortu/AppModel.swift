@@ -184,11 +184,11 @@ final class AppModel: ObservableObject {
             refreshLaunchAtLogin()
             launchAtLoginMessage =
                 launchAtLoginManager.status == .requiresApproval
-                ? "Sistem Ayarları > Giriş Öğeleri bölümünde onay bekliyor."
-                : (enabled ? "Örtü girişte otomatik açılacak." : nil)
+                ? L10n.text("launch_at_login.approval")
+                : (enabled ? L10n.text("launch_at_login.enabled") : nil)
         } catch {
             refreshLaunchAtLogin()
-            launchAtLoginMessage = "Başlangıç ayarı değiştirilemedi: \(error.localizedDescription)"
+            launchAtLoginMessage = L10n.text("launch_at_login.failed", error.localizedDescription)
         }
     }
 
@@ -213,14 +213,14 @@ final class AppModel: ObservableObject {
     }
 
     func importCoverPack() {
-        chooseCoverPack(prompt: "Ekle") { [weak self] sourceURL in
+        chooseCoverPack(prompt: L10n.text("pack.panel.add_prompt")) { [weak self] sourceURL in
             Task { await self?.importCoverPack(from: sourceURL) }
         }
     }
 
     func updateCoverPack(_ pack: CoverPackSummary) {
         guard !pack.isBuiltIn else { return }
-        chooseCoverPack(prompt: "Yeni Sürümü Seç") { [weak self] sourceURL in
+        chooseCoverPack(prompt: L10n.text("pack.panel.update_prompt")) { [weak self] sourceURL in
             Task { await self?.importCoverPack(from: sourceURL, replacingID: pack.id) }
         }
     }
@@ -233,11 +233,11 @@ final class AppModel: ObservableObject {
     func removeCoverPack(_ pack: CoverPackSummary) {
         guard !pack.isBuiltIn else { return }
         let alert = NSAlert()
-        alert.messageText = "\(pack.name) kaldırılsın mı?"
-        alert.informativeText = "Paket dosyaları bu Mac’ten kaldırılacak. Bu işlem geri alınamaz."
+        alert.messageText = L10n.text("pack.remove.confirmation", pack.name)
+        alert.informativeText = L10n.text("pack.remove.warning")
         alert.alertStyle = .warning
-        alert.addButton(withTitle: "Kaldır")
-        alert.addButton(withTitle: "Vazgeç")
+        alert.addButton(withTitle: L10n.text("settings.remove"))
+        alert.addButton(withTitle: L10n.text("pack.remove.cancel"))
         guard alert.runModal() == .alertFirstButtonReturn else { return }
 
         Task { [weak self] in await self?.removeConfirmedCoverPack(pack) }
@@ -245,7 +245,7 @@ final class AppModel: ObservableObject {
 
     private func chooseCoverPack(prompt: String, completion: (URL) -> Void) {
         let panel = NSOpenPanel()
-        panel.title = "Örtü Paketi Ekle"
+        panel.title = L10n.text("pack.panel.title")
         panel.prompt = prompt
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
@@ -265,11 +265,12 @@ final class AppModel: ObservableObject {
             let result = try await packStore.importPack(from: sourceURL, replacingID: replacingID)
             await refreshPacks(selecting: result.pack.manifest.id)
             let manifest = result.pack.manifest
-            let name = manifest.name["tr"] ?? manifest.name["en"] ?? manifest.id
+            let languageCode = Locale.current.language.languageCode?.identifier ?? "en"
+            let name = manifest.name[languageCode] ?? manifest.name["en"] ?? manifest.name["tr"] ?? manifest.id
             packMessage =
                 result.action == .updated
-                ? "\(name), \(manifest.version) sürümüne güncellendi."
-                : "\(name) eklendi."
+                ? L10n.text("pack.updated", name, manifest.version)
+                : L10n.text("pack.installed", name)
             return true
         } catch {
             packMessage = error.localizedDescription
@@ -291,7 +292,7 @@ final class AppModel: ObservableObject {
             if selectedPackID == pack.id, let fallback = packs.first {
                 selectedPackID = fallback.id
             }
-            packMessage = "\(pack.name) kaldırıldı."
+            packMessage = L10n.text("pack.removed", pack.name)
         } catch {
             packMessage = error.localizedDescription
         }

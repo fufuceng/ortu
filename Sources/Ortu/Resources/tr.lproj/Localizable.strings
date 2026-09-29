@@ -1,0 +1,90 @@
+"app.name" = "Örtü";
+"app.tagline" = "Hafif, yerel ve Mac’in için.";
+"app.tooltip" = "Örtü — Sol tık: Ser/Kaldır • Sağ tık: Menü";
+
+"menu.drape" = "Örtüyü Ser";
+"menu.remove" = "Örtüyü Kaldır";
+"menu.settings" = "Ayarlar…";
+"menu.launch_at_login" = "Girişte Otomatik Aç";
+"menu.quit" = "Örtü’den Çık";
+
+"accessibility.cover.draped" = "Örtü serili";
+"accessibility.cover.removed" = "Örtü kaldırılmış";
+"accessibility.overlay" = "Örtü masaüstü katmanı";
+
+"settings.window.title" = "Örtü Ayarları";
+"settings.section.appearance" = "Görünüm";
+"settings.cover" = "Örtü";
+"settings.opacity" = "Opaklık";
+"settings.drop" = "Düşme";
+"settings.width" = "Genişlik";
+"settings.background" = "Arka plan";
+"settings.full" = "Tam";
+"settings.customize_thread" = "İplik rengini özelleştir";
+"settings.thread_color" = "İplik rengi";
+"settings.section.packs" = "Örtü Paketleri";
+"settings.user_pack_count" = "%lld kullanıcı paketi yüklü";
+"settings.pack_drop_hint" = ".ortupack dosyasını buraya bırakabilirsin.";
+"settings.add_pack" = "Paket Ekle…";
+"settings.built_in" = "Yerleşik";
+"settings.update" = "Güncelle…";
+"settings.reveal" = "Finder’da Göster";
+"settings.remove" = "Kaldır";
+"settings.section.application" = "Uygulama";
+"settings.multiple_displays" = "Birden fazla ekran";
+"settings.launch_at_login" = "Girişte otomatik aç";
+"settings.shortcut_hint" = "Örtüyü her yerden serip kaldırmak için ⇧⌘O kısayolunu kullanabilirsin.";
+"settings.reset" = "Varsayılanlara Dön";
+"settings.pack_safety" = "Örtüler yalnızca veri içeren .ortupack paketleri olarak yüklenir; paketler kod çalıştıramaz.";
+
+"display.all.title" = "Tüm ekranlar";
+"display.primary.title" = "Yalnız ana ekran";
+"display.pointer.title" = "Sererken imlecin bulunduğu ekran";
+"display.all.detail" = "Her ekrana ayrı örtü serilir; birinden kaldırınca hepsi birlikte kaldırılır.";
+"display.primary.detail" = "Örtü yalnız menü çubuğunun bulunduğu ana ekranda görünür.";
+"display.pointer.detail" = "Ser komutu verildiği anda imlecin bulunduğu ekran seçilir.";
+
+"launch_at_login.approval" = "Sistem Ayarları > Giriş Öğeleri bölümünde onay bekliyor.";
+"launch_at_login.enabled" = "Örtü girişte otomatik açılacak.";
+"launch_at_login.failed" = "Başlangıç ayarı değiştirilemedi: %@";
+
+"pack.panel.add_prompt" = "Ekle";
+"pack.panel.update_prompt" = "Yeni Sürümü Seç";
+"pack.panel.title" = "Örtü Paketi Ekle";
+"pack.remove.confirmation" = "%@ kaldırılsın mı?";
+"pack.remove.warning" = "Paket dosyaları bu Mac’ten kaldırılacak. Bu işlem geri alınamaz.";
+"pack.remove.cancel" = "Vazgeç";
+"pack.updated" = "%@, %@ sürümüne güncellendi.";
+"pack.installed" = "%@ eklendi.";
+"pack.removed" = "%@ kaldırıldı.";
+
+"pack.error.not_package" = "Seçilen öğe bir .ortupack paketi değil.";
+"pack.error.symbolic_link" = "Paket veya içindeki bir dosya sembolik bağlantı olamaz.";
+"pack.error.missing_manifest" = "Paket manifest.json içermiyor.";
+"pack.error.manifest_too_large" = "Paket manifesti izin verilen boyutu aşıyor.";
+"pack.error.malformed_manifest" = "Paket manifesti okunamadı.";
+"pack.error.unsupported_schema" = "Paket şeması desteklenmiyor: %lld.";
+"pack.error.invalid_identifier" = "Paket kimliği geçersiz.";
+"pack.error.invalid_version" = "Paket sürümü geçerli semantic version biçiminde değil.";
+"pack.error.invalid_metadata" = "Paket alanı geçersiz: %@.";
+"pack.error.invalid_asset_path" = "Güvenli olmayan varlık yolu: %@.";
+"pack.error.missing_asset" = "Paket varlığı eksik: %@.";
+"pack.error.unsupported_asset" = "Desteklenmeyen varlık türü: %@.";
+"pack.error.unexpected_entry" = "Pakette beklenmeyen öğe var: %@.";
+"pack.error.too_many_files" = "Paket çok fazla dosya içeriyor.";
+"pack.error.package_too_large" = "Paket açılmış boyut sınırını aşıyor.";
+"pack.error.archive_too_large" = "Paket dosyası 25 MB sınırını aşıyor.";
+"pack.error.malformed_archive" = "Paket arşivi okunamadı veya bozuk.";
+"pack.error.unsupported_archive" = "Paket arşivi desteklenmeyen ya da güvensiz bir özellik içeriyor.";
+"pack.error.extraction_failed" = "Paket güvenli kurulum alanına açılamadı.";
+"pack.error.invalid_image" = "Görsel okunamadı: %@.";
+"pack.error.image_too_large" = "Görsel boyutları sınırı aşıyor: %@.";
+"pack.error.checksum_mismatch" = "Dosya bütünlük kontrolü başarısız: %@.";
+"pack.error.already_installed" = "Bu örtü paketi zaten yüklü.";
+"pack.error.version_not_newer" = "Yalnızca daha yeni bir paket sürümü yüklenebilir.";
+"pack.error.built_in_identifier" = "Yerleşik bir örtünün kimliği harici paket tarafından kullanılamaz.";
+"pack.error.identifier_mismatch" = "Seçilen dosya bu örtü paketinin yeni sürümü değil.";
+"pack.error.pack_not_found" = "Yüklü örtü paketi bulunamadı.";
+
+"cli.pack.valid" = "✓ %@ %@ — geçerli .ortupack";
+"cli.pack.invalid" = "✗ Geçersiz .ortupack: %@\n";

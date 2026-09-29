@@ -71,33 +71,33 @@ enum CoverPackError: LocalizedError, Equatable {
 
     var errorDescription: String? {
         switch self {
-        case .notPackage: "Seçilen öğe bir .ortupack paketi değil."
-        case .symbolicLink: "Paket veya içindeki bir dosya sembolik bağlantı olamaz."
-        case .missingManifest: "Paket manifest.json içermiyor."
-        case .manifestTooLarge: "Paket manifesti izin verilen boyutu aşıyor."
-        case .malformedManifest: "Paket manifesti okunamadı."
-        case let .unsupportedSchema(version): "Paket şeması desteklenmiyor: \(version)."
-        case .invalidIdentifier: "Paket kimliği geçersiz."
-        case .invalidVersion: "Paket sürümü geçerli semantic version biçiminde değil."
-        case let .invalidMetadata(field): "Paket alanı geçersiz: \(field)."
-        case let .invalidAssetPath(path): "Güvenli olmayan varlık yolu: \(path)."
-        case let .missingAsset(path): "Paket varlığı eksik: \(path)."
-        case let .unsupportedAsset(path): "Desteklenmeyen varlık türü: \(path)."
-        case let .unexpectedEntry(path): "Pakette beklenmeyen öğe var: \(path)."
-        case .tooManyFiles: "Paket çok fazla dosya içeriyor."
-        case .packageTooLarge: "Paket açılmış boyut sınırını aşıyor."
-        case .archiveTooLarge: "Paket dosyası 25 MB sınırını aşıyor."
-        case .malformedArchive: "Paket arşivi okunamadı veya bozuk."
-        case .unsupportedArchive: "Paket arşivi desteklenmeyen ya da güvensiz bir özellik içeriyor."
-        case .extractionFailed: "Paket güvenli kurulum alanına açılamadı."
-        case let .invalidImage(path): "Görsel okunamadı: \(path)."
-        case let .imageTooLarge(path): "Görsel boyutları sınırı aşıyor: \(path)."
-        case let .checksumMismatch(path): "Dosya bütünlük kontrolü başarısız: \(path)."
-        case .alreadyInstalled: "Bu örtü paketi zaten yüklü."
-        case .versionNotNewer: "Yalnızca daha yeni bir paket sürümü yüklenebilir."
-        case .builtInIdentifier: "Yerleşik bir örtünün kimliği harici paket tarafından kullanılamaz."
-        case .identifierMismatch: "Seçilen dosya bu örtü paketinin yeni sürümü değil."
-        case .packNotFound: "Yüklü örtü paketi bulunamadı."
+        case .notPackage: L10n.text("pack.error.not_package")
+        case .symbolicLink: L10n.text("pack.error.symbolic_link")
+        case .missingManifest: L10n.text("pack.error.missing_manifest")
+        case .manifestTooLarge: L10n.text("pack.error.manifest_too_large")
+        case .malformedManifest: L10n.text("pack.error.malformed_manifest")
+        case let .unsupportedSchema(version): L10n.text("pack.error.unsupported_schema", version)
+        case .invalidIdentifier: L10n.text("pack.error.invalid_identifier")
+        case .invalidVersion: L10n.text("pack.error.invalid_version")
+        case let .invalidMetadata(field): L10n.text("pack.error.invalid_metadata", field)
+        case let .invalidAssetPath(path): L10n.text("pack.error.invalid_asset_path", path)
+        case let .missingAsset(path): L10n.text("pack.error.missing_asset", path)
+        case let .unsupportedAsset(path): L10n.text("pack.error.unsupported_asset", path)
+        case let .unexpectedEntry(path): L10n.text("pack.error.unexpected_entry", path)
+        case .tooManyFiles: L10n.text("pack.error.too_many_files")
+        case .packageTooLarge: L10n.text("pack.error.package_too_large")
+        case .archiveTooLarge: L10n.text("pack.error.archive_too_large")
+        case .malformedArchive: L10n.text("pack.error.malformed_archive")
+        case .unsupportedArchive: L10n.text("pack.error.unsupported_archive")
+        case .extractionFailed: L10n.text("pack.error.extraction_failed")
+        case let .invalidImage(path): L10n.text("pack.error.invalid_image", path)
+        case let .imageTooLarge(path): L10n.text("pack.error.image_too_large", path)
+        case let .checksumMismatch(path): L10n.text("pack.error.checksum_mismatch", path)
+        case .alreadyInstalled: L10n.text("pack.error.already_installed")
+        case .versionNotNewer: L10n.text("pack.error.version_not_newer")
+        case .builtInIdentifier: L10n.text("pack.error.built_in_identifier")
+        case .identifierMismatch: L10n.text("pack.error.identifier_mismatch")
+        case .packNotFound: L10n.text("pack.error.pack_not_found")
         }
     }
 }
