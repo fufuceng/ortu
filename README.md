@@ -79,6 +79,20 @@ All bundled packs use original, project-owned artwork and go through the same ma
 
 Supported package licenses in the first schema are `CC0-1.0`, `CC-BY-4.0`, and `MIT`.
 
+## Install
+
+### GitHub Releases
+
+Download the latest `Ortu-<version>.dmg` from [GitHub Releases](https://github.com/fufuceng/ortu/releases), open it, and drag **Ortu.app** into **Applications**.
+
+### Homebrew
+
+```sh
+brew install --cask fufuceng/tap/ortu
+```
+
+Örtü is currently ad-hoc signed and is not notarized by Apple. macOS will warn the first time it opens. After attempting to open Örtü once, use **System Settings → Privacy & Security → Open Anyway** only if you trust this repository and the downloaded release. See [Apple’s security guidance](https://support.apple.com/102445) for the official override flow.
+
 ## Requirements
 
 - macOS 13+

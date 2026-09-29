@@ -1,4 +1,4 @@
-.PHONY: check format format-check test coverage package
+.PHONY: check format format-check test coverage package release-package
 
 check:
 	./scripts/check.sh
@@ -18,3 +18,7 @@ coverage:
 
 package:
 	./scripts/package-local.sh
+
+release-package:
+	test -n "$(VERSION)"
+	./scripts/package-release.sh "$(VERSION)"

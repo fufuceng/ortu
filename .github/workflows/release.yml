@@ -1,0 +1,93 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v[0-9]*.[0-9]*.[0-9]*"
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build DMG and publish release
+    runs-on: macos-15
+    timeout-minutes: 30
+    environment: release
+    env:
+      HOMEBREW_TAP_DEPLOY_KEY: ${{ secrets.HOMEBREW_TAP_DEPLOY_KEY }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Validate release tag
+        id: version
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tag must use vx.y.z format." >&2
+            exit 1
+          fi
+          git fetch origin main
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+          echo "value=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Run quality gate
+        run: ./scripts/check.sh
+
+      - name: Build universal DMG
+        run: ./scripts/package-release.sh "${{ steps.version.outputs.value }}"
+
+      - name: Render Homebrew cask
+        run: |
+          ./scripts/render-homebrew-cask.sh \
+            "${{ steps.version.outputs.value }}" \
+            "dist/Ortu-${{ steps.version.outputs.value }}.dmg" \
+            "dist/ortu.rb"
+
+      - name: Publish immutable GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            "dist/Ortu-${{ steps.version.outputs.value }}.dmg" \
+            "dist/Ortu-${{ steps.version.outputs.value }}.dmg.sha256" \
+            "dist/ortu.rb" \
+            --verify-tag \
+            --title "Örtü ${{ steps.version.outputs.value }}" \
+            --generate-notes
+
+      - name: Configure Homebrew tap deploy key
+        if: ${{ env.HOMEBREW_TAP_DEPLOY_KEY != '' }}
+        run: |
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$HOMEBREW_TAP_DEPLOY_KEY" > "$HOME/.ssh/ortu-homebrew-tap"
+          chmod 600 "$HOME/.ssh/ortu-homebrew-tap"
+          ssh-keyscan github.com >> "$HOME/.ssh/known_hosts"
+          cat >> "$HOME/.ssh/config" <<'EOF'
+          Host github-ortu-tap
+            HostName github.com
+            User git
+            IdentityFile ~/.ssh/ortu-homebrew-tap
+            IdentitiesOnly yes
+          EOF
+
+      - name: Update Homebrew tap
+        if: ${{ env.HOMEBREW_TAP_DEPLOY_KEY != '' }}
+        run: |
+          git clone git@github-ortu-tap:fufuceng/homebrew-tap.git homebrew-tap
+          install -d homebrew-tap/Casks
+          install -m 644 dist/ortu.rb homebrew-tap/Casks/ortu.rb
+          brew style homebrew-tap/Casks/ortu.rb
+          git -C homebrew-tap config user.name "Örtü Release Bot"
+          git -C homebrew-tap config user.email "fufuceng@gmail.com"
+          git -C homebrew-tap add Casks/ortu.rb
+          git -C homebrew-tap commit -m "Update Örtü to ${{ steps.version.outputs.value }}"
+          git -C homebrew-tap push origin HEAD:main

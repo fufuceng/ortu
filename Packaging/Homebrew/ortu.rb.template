@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+cask "ortu" do
+  version "__VERSION__"
+  sha256 "__SHA256__"
+
+  url "https://github.com/fufuceng/ortu/releases/download/v#{version}/Ortu-#{version}.dmg"
+  name "Örtü"
+  desc "Lightweight decorative desktop cover"
+  homepage "https://github.com/fufuceng/ortu"
+
+  depends_on macos: ">= :ventura"
+
+  app "Ortu.app"
+
+  zap trash: [
+    "~/Library/Application Support/Örtü",
+    "~/Library/Preferences/dev.ortu.app.plist",
+  ]
+
+  caveats <<~EOS
+    Örtü is currently distributed without Apple Developer ID notarization.
+    macOS will show a security warning the first time you open it.
+
+    After trying to open Örtü once, go to:
+      System Settings → Privacy & Security → Open Anyway
+
+    Only continue if you trust the release published by fufuceng/ortu.
+  EOS
+end
