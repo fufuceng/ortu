@@ -35,6 +35,12 @@ Tinted textures are rendered and cached only when the selected pack or thread co
 
 ## See it in action
 
+### One click from the menu bar
+
+<p align="center">
+  <img src="docs/assets/demo-menu-bar.gif" alt="Opening Örtü from the macOS menu bar and draping a lace cover over the desktop" width="800">
+</p>
+
 ### Drape, shape, and fold
 
 <p align="center">
@@ -46,6 +52,20 @@ Tinted textures are rendered and cached only when the selected pack or thread co
 <p align="center">
   <img src="docs/assets/demo-settings.gif" alt="Changing the lace motif, dimensions, and background dimming in Örtü settings" width="49%">
   <img src="docs/assets/demo-tint.gif" alt="Customizing the lace thread color in Örtü settings" width="49%">
+</p>
+
+## Screenshots
+
+### A calm desktop cover
+
+<p align="center">
+  <img src="docs/assets/screenshot-desktop.png" alt="A white lace cover draped across a dimmed macOS desktop" width="800">
+</p>
+
+### Native macOS settings
+
+<p align="center">
+  <img src="docs/assets/screenshot-settings.png" alt="Örtü settings in dark mode with appearance, cover pack, and multi-display controls" width="462">
 </p>
 
 ## Cover packs
