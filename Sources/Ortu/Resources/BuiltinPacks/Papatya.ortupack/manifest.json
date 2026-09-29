@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "dev.ortu.papatya",
+  "version": "1.0.0",
+  "name": { "tr": "Papatya", "en": "Daisy" },
+  "author": "Örtü Project",
+  "license": "CC0-1.0",
+  "canvas": { "width": 1902, "height": 827 },
+  "anchor": "topCenter",
+  "defaultDrop": 0.38,
+  "defaultWidth": 0.98,
+  "tintMode": "multiply",
+  "assets": {
+    "texture1x": "texture@1x.png",
+    "texture2x": "texture@2x.png",
+    "mask": "mask.png",
+    "preview": "preview.png"
+  },
+  "sha256": {
+    "texture@1x.png": "3333c3687025f8044ca46c10438e10d6349b3e697be419a7085c97b3e0ee91dd",
+    "texture@2x.png": "6ad7580d937db20bf89054c114ba90eba04ac9a68ffc4a8c5432798dff58d629",
+    "mask.png": "3333c3687025f8044ca46c10438e10d6349b3e697be419a7085c97b3e0ee91dd",
+    "preview.png": "3333c3687025f8044ca46c10438e10d6349b3e697be419a7085c97b3e0ee91dd"
+  }
+}

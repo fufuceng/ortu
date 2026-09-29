@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "dev.ortu.lale",
+  "version": "1.0.0",
+  "name": { "tr": "Lale", "en": "Tulip" },
+  "author": "Örtü Project",
+  "license": "CC0-1.0",
+  "canvas": { "width": 1862, "height": 845 },
+  "anchor": "topCenter",
+  "defaultDrop": 0.40,
+  "defaultWidth": 0.98,
+  "tintMode": "multiply",
+  "assets": {
+    "texture1x": "texture@1x.png",
+    "texture2x": "texture@2x.png",
+    "mask": "mask.png",
+    "preview": "preview.png"
+  },
+  "sha256": {
+    "texture@1x.png": "c81145069d3a303290fc1de76df0342d66d28e665c067a60be10049961533f72",
+    "texture@2x.png": "b8a9cc1ad31cd96d3d77ffca275ee9b43c3299bdaf773e4a3a4b9a6e16170fed",
+    "mask.png": "c81145069d3a303290fc1de76df0342d66d28e665c067a60be10049961533f72",
+    "preview.png": "c81145069d3a303290fc1de76df0342d66d28e665c067a60be10049961533f72"
+  }
+}

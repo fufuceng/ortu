@@ -1,0 +1,31 @@
+{
+  "anchor" : "topCenter",
+  "assets" : {
+    "mask" : "mask.png",
+    "preview" : "preview.png",
+    "texture1x" : "texture@1x.png",
+    "texture2x" : "texture@2x.png"
+  },
+  "author" : "Örtü Project",
+  "canvas" : {
+    "height" : 545,
+    "width" : 2055
+  },
+  "defaultDrop" : 0.38,
+  "defaultWidth" : 0.97999999999999998,
+  "id" : "dev.ortu.yildiz",
+  "license" : "CC0-1.0",
+  "name" : {
+    "en" : "Star",
+    "tr" : "Yıldız"
+  },
+  "schemaVersion" : 1,
+  "sha256" : {
+    "mask.png" : "f113f4e1ac98b0d6dabf9cd98450ceb38c8fcd577e47a09a1f7d81f56171c73c",
+    "preview.png" : "f3b4bdfca4136d64e3a2cd04b907dafbc657bff9257c544acbd6cae6a0948e0d",
+    "texture@1x.png" : "f113f4e1ac98b0d6dabf9cd98450ceb38c8fcd577e47a09a1f7d81f56171c73c",
+    "texture@2x.png" : "fb0a48f0af24de935abe81c121c5d59a7e56caf391f218ce8e13f7f66ec64860"
+  },
+  "tintMode" : "multiply",
+  "version" : "1.0.0"
+}

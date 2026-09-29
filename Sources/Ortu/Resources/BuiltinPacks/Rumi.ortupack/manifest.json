@@ -1,0 +1,31 @@
+{
+  "anchor" : "topCenter",
+  "assets" : {
+    "mask" : "mask.png",
+    "preview" : "preview.png",
+    "texture1x" : "texture@1x.png",
+    "texture2x" : "texture@2x.png"
+  },
+  "author" : "Örtü Project",
+  "canvas" : {
+    "height" : 511,
+    "width" : 2079
+  },
+  "defaultDrop" : 0.40000000000000002,
+  "defaultWidth" : 0.97999999999999998,
+  "id" : "dev.ortu.rumi",
+  "license" : "CC0-1.0",
+  "name" : {
+    "en" : "Rumi",
+    "tr" : "Rûmî"
+  },
+  "schemaVersion" : 1,
+  "sha256" : {
+    "mask.png" : "b11680889bca38c82bf1c8a5d711f61ed1ed56b56e30518ab1d6371d31e4b227",
+    "preview.png" : "6051aaf227f6482e0861d817dad286e020a5a44b250344e1d59e73656803bcc2",
+    "texture@1x.png" : "b11680889bca38c82bf1c8a5d711f61ed1ed56b56e30518ab1d6371d31e4b227",
+    "texture@2x.png" : "c191dbdfc83b7fe0db733eeb30e48ed48497e19cf3cbeb37dab1fd4afbe25b31"
+  },
+  "tintMode" : "multiply",
+  "version" : "1.0.0"
+}

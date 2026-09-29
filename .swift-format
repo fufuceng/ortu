@@ -1,0 +1,24 @@
+{
+  "indentation": {
+    "spaces": 4
+  },
+  "lineLength": 120,
+  "maximumBlankLines": 1,
+  "multiElementCollectionTrailingCommas": true,
+  "orderedImports": {
+    "includeConditionalImports": false
+  },
+  "respectsExistingLineBreaks": true,
+  "rules": {
+    "AllPublicDeclarationsHaveDocumentation": false,
+    "GroupNumericLiterals": false,
+    "IdentifiersMustBeASCII": false,
+    "NeverForceUnwrap": true,
+    "NeverUseForceTry": true,
+    "NeverUseImplicitlyUnwrappedOptionals": true,
+    "NoAccessLevelOnExtensionDeclaration": false,
+    "UseLetInEveryBoundCaseVariable": false
+  },
+  "spacesAroundRangeFormationOperators": true,
+  "version": 1
+}

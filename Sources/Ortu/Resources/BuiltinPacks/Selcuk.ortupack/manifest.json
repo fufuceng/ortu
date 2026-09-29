@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "dev.ortu.selcuk",
+  "version": "1.0.0",
+  "name": { "tr": "Selçuk", "en": "Seljuk" },
+  "author": "Örtü Project",
+  "license": "CC0-1.0",
+  "canvas": { "width": 1860, "height": 845 },
+  "anchor": "topCenter",
+  "defaultDrop": 0.42,
+  "defaultWidth": 0.98,
+  "tintMode": "multiply",
+  "assets": {
+    "texture1x": "texture@1x.png",
+    "texture2x": "texture@2x.png",
+    "mask": "mask.png",
+    "preview": "preview.png"
+  },
+  "sha256": {
+    "texture@1x.png": "69b9e455f5d38cf7f1d2caeaad9d37f73be08d8e1c5c91864d74e9455c82d689",
+    "texture@2x.png": "f34d9a27a7fad8f36621f8908884bf020d9ff8d9740684ac51cad3983ab70a7c",
+    "mask.png": "69b9e455f5d38cf7f1d2caeaad9d37f73be08d8e1c5c91864d74e9455c82d689",
+    "preview.png": "69b9e455f5d38cf7f1d2caeaad9d37f73be08d8e1c5c91864d74e9455c82d689"
+  }
+}

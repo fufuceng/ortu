@@ -1,0 +1,39 @@
+name: Feature proposal
+description: Propose a user-facing improvement
+title: "[Feature]: "
+labels: [enhancement, needs-triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Describe the need before proposing an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What should become possible, and how would we know it worked?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Expected runtime impact
+      options:
+        - No background or idle work
+        - Short user-triggered work only
+        - May introduce continuous or background work
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context or mockups
+

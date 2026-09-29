@@ -1,0 +1,31 @@
+{
+  "anchor" : "topCenter",
+  "assets" : {
+    "mask" : "mask.png",
+    "preview" : "preview.png",
+    "texture1x" : "texture@1x.png",
+    "texture2x" : "texture@2x.png"
+  },
+  "author" : "Örtü Project",
+  "canvas" : {
+    "height" : 528,
+    "width" : 2172
+  },
+  "defaultDrop" : 0.38,
+  "defaultWidth" : 0.97999999999999998,
+  "id" : "dev.ortu.karanfil",
+  "license" : "CC0-1.0",
+  "name" : {
+    "en" : "Carnation",
+    "tr" : "Karanfil"
+  },
+  "schemaVersion" : 1,
+  "sha256" : {
+    "mask.png" : "954a7e0d72eaa7a82a4395353e1c61d584b1b889a1ed7bbc6873ad32b53ee047",
+    "preview.png" : "b94cf548725fa89274cea01c02dd17f12855ac0de57cbcd504844c1809170640",
+    "texture@1x.png" : "954a7e0d72eaa7a82a4395353e1c61d584b1b889a1ed7bbc6873ad32b53ee047",
+    "texture@2x.png" : "0ff554d7c88c990a0d901833d4a376301fedb6713603118a8371fc6df1206b54"
+  },
+  "tintMode" : "multiply",
+  "version" : "1.0.0"
+}

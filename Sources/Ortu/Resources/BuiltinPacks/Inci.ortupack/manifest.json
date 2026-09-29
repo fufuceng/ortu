@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "dev.ortu.inci",
+  "version": "1.0.0",
+  "name": {
+    "tr": "İnci",
+    "en": "Pearl"
+  },
+  "author": "Örtü Project",
+  "license": "CC0-1.0",
+  "canvas": {
+    "width": 1774,
+    "height": 887
+  },
+  "anchor": "topCenter",
+  "defaultDrop": 0.56,
+  "defaultWidth": 0.96,
+  "tintMode": "multiply",
+  "assets": {
+    "texture1x": "texture@1x.png",
+    "texture2x": "texture@2x.png",
+    "mask": "mask.png",
+    "preview": "preview.png"
+  },
+  "sha256": {
+    "texture@1x.png": "54e6661591ba5e00bda80cffa90d359462a7ee9dda7897b286fa17cb246a13da",
+    "texture@2x.png": "2241f64d8e3ecb1c599ba9b7b81d8d7e37e54b949f36b00a98bf8a7367084a9a",
+    "mask.png": "54e6661591ba5e00bda80cffa90d359462a7ee9dda7897b286fa17cb246a13da",
+    "preview.png": "54e6661591ba5e00bda80cffa90d359462a7ee9dda7897b286fa17cb246a13da"
+  }
+}

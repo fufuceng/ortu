@@ -1,0 +1,51 @@
+#!/bin/sh
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PROJECT_DIR=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
+
+usage() {
+    echo "usage:"
+    echo "  ortu-pack prepare INPUT_IMAGE SOURCE_DIR ID TR_NAME EN_NAME DEFAULT_DROP"
+    echo "  ortu-pack build SOURCE_DIR OUTPUT.ortupack"
+    echo "  ortu-pack validate INPUT.ortupack"
+}
+
+validate() {
+    CLANG_MODULE_CACHE_PATH="$PROJECT_DIR/.build/clang-cache" \
+        swift run --disable-sandbox --package-path "$PROJECT_DIR" Ortu --validate-pack "$1"
+}
+
+command=${1:-}
+case "$command" in
+    prepare)
+        [ "$#" -eq 7 ] || { usage; exit 2; }
+        swift "$SCRIPT_DIR/prepare-lace-pack.swift" "$2" "$3" "$4" "$5" "$6" "$7"
+        ;;
+    build)
+        [ "$#" -eq 3 ] || { usage; exit 2; }
+        source_dir=$2
+        output=$3
+        [ -d "$source_dir" ] || { echo "source directory not found: $source_dir" >&2; exit 1; }
+        [ "${output##*.}" = "ortupack" ] || { echo "output must end with .ortupack" >&2; exit 1; }
+        [ ! -e "$output" ] || { echo "output already exists: $output" >&2; exit 1; }
+        validate "$source_dir"
+        output_dir=$(CDPATH= cd -- "$(dirname -- "$output")" && pwd)
+        output_path="$output_dir/$(basename -- "$output")"
+        (
+            cd "$source_dir"
+            set -- *
+            /usr/bin/zip -X -q -j "$output_path" "$@"
+        )
+        validate "$output_path"
+        echo "$output_path"
+        ;;
+    validate)
+        [ "$#" -eq 2 ] || { usage; exit 2; }
+        validate "$2"
+        ;;
+    *)
+        usage
+        exit 2
+        ;;
+esac

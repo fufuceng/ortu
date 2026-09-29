@@ -1,0 +1,13 @@
+.build/
+.swiftpm/
+dist/
+/internal/
+DerivedData/
+*.dSYM/
+*.profdata
+*.xcresult/
+xcuserdata/
+.DS_Store
+*.swp
+*.swo
+*~
