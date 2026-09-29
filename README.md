@@ -4,35 +4,6 @@
   <img src="docs/assets/ortu-readme-hero.png" alt="Terracotta and sage Turkish lace draped across a warm ivory background" width="100%">
 </p>
 
-[![CI](https://github.com/fufuceng/ortu/actions/workflows/ci.yml/badge.svg)](https://github.com/fufuceng/ortu/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/fufuceng/ortu/actions/workflows/codeql.yml/badge.svg)](https://github.com/fufuceng/ortu/actions/workflows/codeql.yml)
-
-Örtü is a lightweight, native macOS menu bar app that places a decorative cover over the desktop.
-
-The project is MIT licensed, fully offline, and designed to do no work while idle. See [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes and [docs/architecture.md](docs/architecture.md) for the engineering boundaries.
-
-Canonical repository: [github.com/fufuceng/ortu](https://github.com/fufuceng/ortu).
-
-This repository currently contains a runnable native prototype:
-
-- AppKit menu bar lifecycle and SwiftUI settings
-- AppKit overlay windows
-- Multi-display lifecycle handling
-- Point-aware cloth deformation while dragging, with a short spring return
-- Drag upward or press Escape to remove the cover
-- Seven selectable original cover packs: `İnci`, `Lale`, `Papatya`, `Selçuk`, `Karanfil`, `Rûmî`, and `Yıldız`
-- Optional dynamic thread color that preserves lace shading and transparency
-- Adjustable background dimming from `0%` to fully black (`100%`)
-- Multi-display policy: all displays, primary display, or the display under the pointer when draping
-- Validated import and rendering of external `.ortupack` bundles
-- Left-click the menu bar icon to drape/fold; right-click for settings and controls
-- System-wide `⌃⌥O` shortcut and an optional launch-at-login setting
-- No timers, polling, networking, analytics, or background rendering
-
-The cloth mesh is redrawn only while the user is dragging and during the brief release animation. At rest, there is no animation loop. macOS **Reduce Motion** removes the spring return.
-
-Tinted textures are rendered and cached only when the selected pack or thread color changes; color customization adds no idle render loop.
-
 ## See it in action
 
 ### One click from the menu bar
@@ -67,6 +38,35 @@ Tinted textures are rendered and cached only when the selected pack or thread co
 <p align="center">
   <img src="docs/assets/screenshot-settings.png" alt="Örtü settings in dark mode with appearance, cover pack, and multi-display controls" width="462">
 </p>
+
+[![CI](https://github.com/fufuceng/ortu/actions/workflows/ci.yml/badge.svg)](https://github.com/fufuceng/ortu/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/fufuceng/ortu/actions/workflows/codeql.yml/badge.svg)](https://github.com/fufuceng/ortu/actions/workflows/codeql.yml)
+
+Örtü is a lightweight, native macOS menu bar app that places a decorative cover over the desktop.
+
+The project is MIT licensed, fully offline, and designed to do no work while idle. See [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes and [docs/architecture.md](docs/architecture.md) for the engineering boundaries.
+
+Canonical repository: [github.com/fufuceng/ortu](https://github.com/fufuceng/ortu).
+
+This repository currently contains a runnable native prototype:
+
+- AppKit menu bar lifecycle and SwiftUI settings
+- AppKit overlay windows
+- Multi-display lifecycle handling
+- Point-aware cloth deformation while dragging, with a short spring return
+- Drag upward or press Escape to remove the cover
+- Seven selectable original cover packs: `İnci`, `Lale`, `Papatya`, `Selçuk`, `Karanfil`, `Rûmî`, and `Yıldız`
+- Optional dynamic thread color that preserves lace shading and transparency
+- Adjustable background dimming from `0%` to fully black (`100%`)
+- Multi-display policy: all displays, primary display, or the display under the pointer when draping
+- Validated import and rendering of external `.ortupack` bundles
+- Left-click the menu bar icon to drape/fold; right-click for settings and controls
+- System-wide `⌃⌥O` shortcut and an optional launch-at-login setting
+- No timers, polling, networking, analytics, or background rendering
+
+The cloth mesh is redrawn only while the user is dragging and during the brief release animation. At rest, there is no animation loop. macOS **Reduce Motion** removes the spring return.
+
+Tinted textures are rendered and cached only when the selected pack or thread color changes; color customization adds no idle render loop.
 
 ## Cover packs
 
