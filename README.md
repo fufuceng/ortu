@@ -33,6 +33,21 @@ The cloth mesh is redrawn only while the user is dragging and during the brief r
 
 Tinted textures are rendered and cached only when the selected pack or thread color changes; color customization adds no idle render loop.
 
+## See it in action
+
+### Drape, shape, and fold
+
+<p align="center">
+  <img src="docs/assets/demo-drape.gif" alt="Örtü being draped, shaped, and folded on the macOS desktop" width="800">
+</p>
+
+### Make it yours
+
+<p align="center">
+  <img src="docs/assets/demo-settings.gif" alt="Changing the lace motif, dimensions, and background dimming in Örtü settings" width="49%">
+  <img src="docs/assets/demo-tint.gif" alt="Customizing the lace thread color in Örtü settings" width="49%">
+</p>
+
 ## Cover packs
 
 Distributed `.ortupack` files are ZIP archives containing only declarative metadata and image assets. Örtü rejects scripts, executables, nested directories, symbolic links, traversal paths, oversized images, unknown files, and checksum mismatches. Packs are expanded into a private staging directory and moved into Application Support only after validation succeeds.
